@@ -111,7 +111,7 @@ class ArrayTokenStream implements TokenStream
     /**
      * @return int
      */
-    public function count()
+    public function count(): int
     {
         return count($this->tokens);
     }
@@ -119,7 +119,7 @@ class ArrayTokenStream implements TokenStream
     /**
      * @return \ArrayIterator
      */
-    public function getIterator()
+    public function getIterator() : \Traversable
     {
         return new ArrayIterator($this->tokens);
     }

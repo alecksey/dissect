@@ -35,7 +35,7 @@ class ArithGrammar extends Grammar
             })
 
             ->is('(', 'Expr', ')')
-            ->call(function ($_, $e, $_) {
+            ->call(function ($_, $e) {
                 return $e;
             })
 

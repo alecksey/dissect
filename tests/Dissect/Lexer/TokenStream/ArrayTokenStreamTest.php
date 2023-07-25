@@ -3,13 +3,13 @@
 namespace Dissect\Lexer\TokenStream;
 
 use Dissect\Lexer\CommonToken;
-use PHPUnit_Framework_TestCase;
+use \PHPUnit\Framework\TestCase;
 
-class ArrayTokenStreamTest extends PHPUnit_Framework_TestCase
+class ArrayTokenStreamTest extends TestCase
 {
     protected $stream;
 
-    protected function setUp()
+    protected function setUp() : void
     {
         $this->stream = new ArrayTokenStream(array(
             new CommonToken('INT', '6', 1, 1),
@@ -53,6 +53,7 @@ class ArrayTokenStreamTest extends PHPUnit_Framework_TestCase
      */
     public function lookAheadShouldThrowAnExceptionWhenInvalid()
     {
+        $this->expectException(\OutOfBoundsException::class);
         $this->stream->lookAhead(15);
     }
 
@@ -70,6 +71,7 @@ class ArrayTokenStreamTest extends PHPUnit_Framework_TestCase
      */
     public function getShouldThrowAnExceptionWhenInvalid()
     {
+        $this->expectException(\OutOfBoundsException::class);
         $this->stream->get(15);
     }
 
@@ -88,6 +90,7 @@ class ArrayTokenStreamTest extends PHPUnit_Framework_TestCase
      */
     public function moveShouldThrowAnExceptionWhenInvalid()
     {
+        $this->expectException(\OutOfBoundsException::class);
         $this->stream->move(15);
     }
 
@@ -106,6 +109,7 @@ class ArrayTokenStreamTest extends PHPUnit_Framework_TestCase
      */
     public function seekShouldThrowAnExceptionWhenInvalid()
     {
+        $this->expectException(\OutOfBoundsException::class);
         $this->stream->seek(15);
     }
 
@@ -127,6 +131,7 @@ class ArrayTokenStreamTest extends PHPUnit_Framework_TestCase
      */
     public function nextShouldThrowAnExceptionWhenAtTheEndOfTheStream()
     {
+        $this->expectException(\OutOfBoundsException::class);
         $this->stream->seek(4);
         $this->stream->next();
     }
