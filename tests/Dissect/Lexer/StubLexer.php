@@ -6,7 +6,7 @@ class StubLexer extends AbstractLexer
 {
     protected function extractToken($string)
     {
-        if (strlen(utf8_decode($string)) === 0) {
+        if (strlen(mb_convert_encoding($string, 'UTF-8')) === 0) {
             return null;
         }
 
